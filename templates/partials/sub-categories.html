@@ -1,0 +1,10 @@
+<!-- Choose type -->
+<div class="col-12">
+    <label class="form-label">Choose listing type *</label>
+    <select class="form-select js-choice">
+        {% for sub in subcategories %}
+        <option value="{{ sub.pk }}">{{ sub.name }}</option>
+        {% endfor %}
+    </select>
+    <small>Hotel: Professional hospitality businesses that usually have a unique style or theme defining their brand and decor</small>
+</div>

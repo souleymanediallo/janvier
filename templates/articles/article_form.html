@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!-- Page Content -->
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+    <!-- =======================
+    Page Banner START -->
+    <section class="pt-4 pt-md-5 pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 mx-auto text-center">
+                    <h1 class="fs-2 mb-2">Add New Listing</h1>
+                    <p class="mb-0">Praise effects wish change way and any wanted. Lively use looked latter regard had.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =======================
+    Page Banner END -->
+
+    <!-- =======================
+    Main content START -->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <form class="vstack gap-4" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <!-- Card 2 START -->
+                        <div class="card shadow mb-4">
+                            <!-- Card body -->
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <!-- Select item -->
+                                    <div class="col-md-5">
+                                        <label class="form-label">Catégorie Principale</label>
+                                    </div>
+                                    <div class="col-md-7 mb-3">
+                                        {{ form.main_category }}
+                                    </div>
+
+                                    <!-- Select item -->
+                                    <div class="col-md-5">
+                                        <label class="form-label">Catégorie</label>
+                                    </div>
+                                    <div class="col-md-7 mb-3">
+                                        {{ form.category }}
+                                    </div>
+                                    <!-- Select item -->
+                                    <div class="col-md-5">
+                                        <label class="form-label">Sous-Catégorie</label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        {{ form.subcategory }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card END -->
+
+                        <!-- Card 3 START -->
+                        <div class="card shadow mb-4">
+                            <!-- Card body -->
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <!-- Select item -->
+                                    <div class="col-md-5">
+                                        <label class="form-label">Etat</label>
+                                    </div>
+                                    <div class="col-md-7 mb-3">
+                                        {{ form.condition }}
+                                    </div>
+
+                                    <!-- Select item -->
+                                    <div class="col-md-5">
+                                        <label class="form-label">Couleur</label>
+                                    </div>
+                                    <div class="col-md-7 mb-3">
+                                        {{ form.color }}
+                                    </div>
+
+                                    <!-- Select item -->
+                                    <div class="col-md-5">
+                                        <label class="form-label">Taille</label>
+                                    </div>
+                                    <div class="col-md-7 mb-3">
+                                        {{ form.size }}
+                                    </div>
+
+                                    <!-- Select item -->
+                                    <div class="col-md-5">
+                                        <label class="form-label">Prix</label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        {{ form.price }}
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card END -->
+
+                        <!-- Card 1 START -->
+                        <div class="card shadow mb-4">
+                            <!-- Card body -->
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <!-- Select item -->
+                                    <div class="col-md-12">
+                                        <label class="form-label">Titre de votre Article</label>
+                                        {{ form.name }}
+                                    </div>
+
+                                    <!-- Select item -->
+                                    <div class="col-md-12">
+                                        <label class="form-label">Description</label>
+                                        {{ form.description }}
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card END -->
+
+                        <!-- Card 4 START -->
+                        <div class="card shadow mb-4">
+                            <!-- Card body -->
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <!-- Select item -->
+                                    <div class="col-md-12">
+                                        <label class="form-label">Photo</label>
+                                        {{ form.photo_main }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card END -->
+
+                        <!-- Card 4 START -->
+                        <div class="card shadow mb-4">
+                            <!-- Card body -->
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <!-- Select item -->
+                                    <div class="col-md-12">
+                                        <label class="form-label">Ajouter jusqu'a 3 Photos </label>
+                                        {% for img in form.article_image.all %}
+                                        {{ img.image_article }}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card END -->
+
+                        <!-- Button -->
+                        <div class="text-end">
+                            <button class="btn btn-primary mb-0">Publier Votre article</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =======================
+    Main content END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+{% endblock %}

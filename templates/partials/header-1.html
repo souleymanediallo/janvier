@@ -1,0 +1,417 @@
+{% load static %}
+
+<!-- Header START -->
+<header class="navbar-light">
+  <!-- Logo Nav START -->
+  <nav class="navbar navbar-expand-lg fixed-top bg-light">
+    <div class="container d-block">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-1">
+          <!-- Logo START -->
+          <a class="navbar-brand fw-bold" href="{% url 'home' %}">BASODI</a>
+          <!-- Logo END -->
+        </div>
+
+        <!-- Nav Search START -->
+        <div class="col-12 col-md-5">
+          <div class="nav my-3 my-xl-0 px-4 flex-nowrap align-items-center">
+            <div class="nav-item w-100">
+              <form class="rounded position-relative">
+                <input class="form-control pe-5 bg-secondary bg-opacity-10" type="search" placeholder="Rechercher un article" aria-label="Search">
+                <button class="btn btn-link bg-transparent px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 text-primary"></i></button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- Nav Search END -->
+
+        <div class="col-12 col-md-6">
+          <!-- Navbar top Right-->
+          <div class="align-items-center justify-content-end d-lg-flex">
+            <ul class="nav border-bottom">
+              <li class="nav-item">
+              </li>
+              <li class="nav-item"> <a href="#" class="nav-link small pb-2"><i class="bi bi-briefcase me-2"></i>Mes favorits</a> </li>
+              <li class="nav-item"> <a href="#" class="nav-link small pb-2"><i class="bi bi-info-circle me-2"></i>Aide</a> </li>
+              {% if user.is_authenticated %}
+              <li class="nav-item"> <a href="{% url 'dashboard' %}" class="nav-link small pb-2"><i class="far fa-user me-2"></i>Dashboard</a> </li>
+              <li class="nav-item"> <a href="{% url 'logout' %}" class="nav-link small pb-2"><i class="far fa-user me-2"></i>Déconnexion</a> </li>
+                {% else %}
+              <li class="nav-item"> <a href="{% url 'register' %}" class="nav-link small pb-2"><i class="far fa-user me-2"></i>Inscription</a> </li>
+              <li class="nav-item"> <a href="{% url 'login' %}" class="nav-link small pb-2"><i class="far fa-user me-2"></i>Connexion</a> </li>
+              {% endif %}
+            </ul>
+          </div>
+
+          <div class="d-sm-flex align-items-center justify-content-end">
+            <!-- Main navbar START -->
+            <div class="navbar-collapse collapse" id="navbarCollapse">
+              <ul class="navbar-nav navbar-nav-scroll ms-auto">
+                <!-- Nav item Find hotel -->
+                <! =================================================================== -->
+                <li class="nav-item dropdown dropdown-fullwidth">
+                  <a class="nav-link" href="#" id="hotelMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Femmes</a>
+                  <div class="dropdown-menu" aria-labelledby="hotelMenu">
+                    <div class="container">
+                      <div class="row g-4 justify-content-between p-lg-3">
+                        <!-- Destination -->
+                        <div class="col-lg-5">
+                          <h6 class="mb-3"><i class="bi bi-pin-map-fill text-primary me-2"></i>Vêtements</h6>
+                          <hr class="my-2">
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <ul class="list-unstyled">
+                                <li> <a class="dropdown-item" href="#">New York</a> </li>
+                                <li> <a class="dropdown-item" href="#">California</a> </li>
+                                <li> <a class="dropdown-item" href="#">New Jersey</a> </li>
+                                <li> <a class="dropdown-item" href="#">Canada</a> </li>
+                                <li> <a class="dropdown-item" href="#">Las vegas</a> </li>
+                              </ul>
+                            </div>
+                            <div class="col-lg-6">
+                              <ul class="list-unstyled">
+                                <li> <a class="dropdown-item" href="#">London</a> </li>
+                                <li> <a class="dropdown-item" href="#">Singapore</a> </li>
+                                <li> <a class="dropdown-item" href="#">Malaysia</a> </li>
+                                <li> <a class="dropdown-item" href="#">manhattan</a> </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Hotel type -->
+                        <div class="col-lg-3">
+                          <h6 class="mb-3"><i class="bi bi-list-ul text-primary me-2"></i>Beauté</h6>
+                          <hr class="my-2">
+                          <ul class="list-unstyled">
+                            <li> <a class="dropdown-item" href="#">All</a> </li>
+                            <li> <a class="dropdown-item" href="#">Hotels</a> </li>
+                            <li> <a class="dropdown-item" href="#">Villas</a> </li>
+                            <li> <a class="dropdown-item" href="#">Palace</a> </li>
+                            <li> <a class="dropdown-item" href="#">Resorts</a> </li>
+                            <li> <a class="dropdown-item" href="#">Restaurants</a> </li>
+                          </ul>
+                        </div>
+
+                        <!-- Category -->
+                        <div class="col-lg-3">
+                          <h6 class="mb-3"><i class="bi bi-grid-3x3-gap text-primary me-2"></i>Accessoires</h6>
+                          <hr class="my-2">
+                          <ul class="list-unstyled">
+                            <li> <a class="dropdown-item" href="#"><i class="fa-solid fa-umbrella-beach fa-fw me-2"></i>Beach</a> </li>
+                            <li> <a class="dropdown-item" href="#"><i class="fa-solid fa-city fa-fw me-2"></i>City</a> </li>
+                            <li> <a class="dropdown-item" href="#"><i class="fa-solid fa-spa fa-fw me-2"></i>Spa</a> </li>
+                            <li> <a class="dropdown-item" href="#"><i class="fa-solid fa-mountain-sun fa-fw me-2"></i>Wildlife</a> </li>
+                            <li> <a class="dropdown-item" href="#"><i class="fa-solid fa-golf-ball-tee fa-fw me-2"></i>Golf</a> </li>
+                            <li> <a class="dropdown-item" href="#"><i class="fa-solid fa-gopuram fa-fw me-2"></i>Heritage</a> </li>
+                          </ul>
+                        </div>
+
+                        <!-- Action box -->
+                        <div class="col-12">
+                          <div class="card overflow-hidden" style="background-image:url(assets/images/bg/05.jpg); background-position: center left; background-size: cover;">
+                            <div class="bg-overlay bg-dark opacity-5"></div>
+                            <div class="card-body d-lg-flex justify-content-between align-items-center position-relative z-index-9">
+                              <!-- Meta -->
+                              <div class="mb-3 mb-lg-0">
+                                <h5 class="text-white">Enjoy Great Times with us</h5>
+                                <ul class="list-inline">
+                                  <li class="list-inline-item text-white me-2"> <i class="bi bi-patch-check-fill me-1"></i>Get 1000 bonus points on every stay</li>
+                                  <li class="list-inline-item text-white me-2"> <i class="bi bi-patch-check-fill me-1"></i>Earn through Dec 15</li>
+                                  <li class="list-inline-item text-white"> <i class="bi bi-patch-check-fill me-1"></i>Redeem for free night and more</li>
+                                </ul>
+                              </div>
+                              <!-- Button -->
+                              <a href="#" class="btn btn-white mb-0">Register Now</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <! ======================================================================= -->
+                <!-- Nav item Facilities -->
+                <!-- Nav item Find hotel -->
+                <! =================================================================== -->
+                <li class="nav-item dropdown dropdown-fullwidth">
+                  <a class="nav-link" href="#" id="hotelMenu2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hommes</a>
+                  <div class="dropdown-menu" aria-labelledby="hotelMenu">
+                    <div class="container">
+                      <div class="row g-4 justify-content-between p-lg-3">
+                        <!-- Destination -->
+                        <div class="col-lg-5">
+                          <h6 class="mb-3"><i class="bi bi-pin-map-fill text-primary me-2"></i>Vêtements</h6>
+                          <hr class="my-2">
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <ul class="list-unstyled">
+                                <li> <a class="dropdown-item" href="#">New York</a> </li>
+                                <li> <a class="dropdown-item" href="#">California</a> </li>
+                                <li> <a class="dropdown-item" href="#">New Jersey</a> </li>
+                                <li> <a class="dropdown-item" href="#">Canada</a> </li>
+                                <li> <a class="dropdown-item" href="#">Las vegas</a> </li>
+                              </ul>
+                            </div>
+                            <div class="col-lg-6">
+                              <ul class="list-unstyled">
+                                <li> <a class="dropdown-item" href="#">London</a> </li>
+                                <li> <a class="dropdown-item" href="#">Singapore</a> </li>
+                                <li> <a class="dropdown-item" href="#">Malaysia</a> </li>
+                                <li> <a class="dropdown-item" href="#">manhattan</a> </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Hotel type -->
+                        <div class="col-lg-3">
+                          <h6 class="mb-3"><i class="bi bi-list-ul text-primary me-2"></i>Accesoires</h6>
+                          <hr class="my-2">
+                          <ul class="list-unstyled">
+                            <li> <a class="dropdown-item" href="#">All</a> </li>
+                            <li> <a class="dropdown-item" href="#">Hotels</a> </li>
+                            <li> <a class="dropdown-item" href="#">Villas</a> </li>
+                            <li> <a class="dropdown-item" href="#">Palace</a> </li>
+                            <li> <a class="dropdown-item" href="#">Resorts</a> </li>
+                            <li> <a class="dropdown-item" href="#">Restaurants</a> </li>
+                          </ul>
+                        </div>
+
+                        <!-- Category -->
+                        <div class="col-lg-3">
+                          <h6 class="mb-3"><i class="bi bi-grid-3x3-gap text-primary me-2"></i>Category</h6>
+                          <hr class="my-2">
+                          <ul class="list-unstyled">
+                            <li> <a class="dropdown-item" href="#"><i class="fa-solid fa-umbrella-beach fa-fw me-2"></i>Beach</a> </li>
+                            <li> <a class="dropdown-item" href="#"><i class="fa-solid fa-city fa-fw me-2"></i>City</a> </li>
+                            <li> <a class="dropdown-item" href="#"><i class="fa-solid fa-spa fa-fw me-2"></i>Spa</a> </li>
+                            <li> <a class="dropdown-item" href="#"><i class="fa-solid fa-mountain-sun fa-fw me-2"></i>Wildlife</a> </li>
+                            <li> <a class="dropdown-item" href="#"><i class="fa-solid fa-golf-ball-tee fa-fw me-2"></i>Golf</a> </li>
+                            <li> <a class="dropdown-item" href="#"><i class="fa-solid fa-gopuram fa-fw me-2"></i>Heritage</a> </li>
+                          </ul>
+                        </div>
+
+                        <!-- Action box -->
+                        <div class="col-12">
+                          <div class="card overflow-hidden" style="background-image:url(assets/images/bg/05.jpg); background-position: center left; background-size: cover;">
+                            <div class="bg-overlay bg-dark opacity-5"></div>
+                            <div class="card-body d-lg-flex justify-content-between align-items-center position-relative z-index-9">
+                              <!-- Meta -->
+                              <div class="mb-3 mb-lg-0">
+                                <h5 class="text-white">Enjoy Great Times with us</h5>
+                                <ul class="list-inline">
+                                  <li class="list-inline-item text-white me-2"> <i class="bi bi-patch-check-fill me-1"></i>Get 1000 bonus points on every stay</li>
+                                  <li class="list-inline-item text-white me-2"> <i class="bi bi-patch-check-fill me-1"></i>Earn through Dec 15</li>
+                                  <li class="list-inline-item text-white"> <i class="bi bi-patch-check-fill me-1"></i>Redeem for free night and more</li>
+                                </ul>
+                              </div>
+                              <!-- Button -->
+                              <a href="#" class="btn btn-white mb-0">Register Now</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <! ======================================================================= -->
+                <!-- Nav item Facilities -->
+                <! =================================================================== -->
+                <li class="nav-item dropdown dropdown-fullwidth">
+                  <a class="nav-link" href="#" id="hotelMenu3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Enfants</a>
+                  <div class="dropdown-menu" aria-labelledby="hotelMenu">
+                    <div class="container">
+                      <div class="row g-4 justify-content-between p-lg-3">
+                        <!-- Destination -->
+                        <div class="col-lg-5">
+                          <h6 class="mb-3"><i class="bi bi-pin-map-fill text-primary me-2"></i>Filles</h6>
+                          <hr class="my-2">
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <ul class="list-unstyled">
+                                <li> <a class="dropdown-item" href="#">New York</a> </li>
+                                <li> <a class="dropdown-item" href="#">California</a> </li>
+                                <li> <a class="dropdown-item" href="#">New Jersey</a> </li>
+                                <li> <a class="dropdown-item" href="#">Canada</a> </li>
+                                <li> <a class="dropdown-item" href="#">Las vegas</a> </li>
+                              </ul>
+                            </div>
+                            <div class="col-lg-6">
+                              <ul class="list-unstyled">
+                                <li> <a class="dropdown-item" href="#">London</a> </li>
+                                <li> <a class="dropdown-item" href="#">Singapore</a> </li>
+                                <li> <a class="dropdown-item" href="#">Malaysia</a> </li>
+                                <li> <a class="dropdown-item" href="#">manhattan</a> </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Hotel type -->
+                        <div class="col-lg-3">
+                          <h6 class="mb-3"><i class="bi bi-list-ul text-primary me-2"></i>Garçons</h6>
+                          <hr class="my-2">
+                          <ul class="list-unstyled">
+                            <li> <a class="dropdown-item" href="#">All</a> </li>
+                            <li> <a class="dropdown-item" href="#">Hotels</a> </li>
+                            <li> <a class="dropdown-item" href="#">Villas</a> </li>
+                            <li> <a class="dropdown-item" href="#">Palace</a> </li>
+                            <li> <a class="dropdown-item" href="#">Resorts</a> </li>
+                            <li> <a class="dropdown-item" href="#">Restaurants</a> </li>
+                          </ul>
+                        </div>
+
+                        <!-- Category -->
+                        <div class="col-lg-3">
+                          <h6 class="mb-3"><i class="bi bi-grid-3x3-gap text-primary me-2"></i>Bébés</h6>
+                          <hr class="my-2">
+                          <ul class="list-unstyled">
+                            <li> <a class="dropdown-item" href="#"><i class="fa-solid fa-umbrella-beach fa-fw me-2"></i>Beach</a> </li>
+                            <li> <a class="dropdown-item" href="#"><i class="fa-solid fa-city fa-fw me-2"></i>City</a> </li>
+                            <li> <a class="dropdown-item" href="#"><i class="fa-solid fa-spa fa-fw me-2"></i>Spa</a> </li>
+                            <li> <a class="dropdown-item" href="#"><i class="fa-solid fa-mountain-sun fa-fw me-2"></i>Wildlife</a> </li>
+                            <li> <a class="dropdown-item" href="#"><i class="fa-solid fa-golf-ball-tee fa-fw me-2"></i>Golf</a> </li>
+                            <li> <a class="dropdown-item" href="#"><i class="fa-solid fa-gopuram fa-fw me-2"></i>Heritage</a> </li>
+                          </ul>
+                        </div>
+
+                        <!-- Action box -->
+                        <div class="col-12">
+                          <div class="card overflow-hidden" style="background-image:url(assets/images/bg/05.jpg); background-position: center left; background-size: cover;">
+                            <div class="bg-overlay bg-dark opacity-5"></div>
+                            <div class="card-body d-lg-flex justify-content-between align-items-center position-relative z-index-9">
+                              <!-- Meta -->
+                              <div class="mb-3 mb-lg-0">
+                                <h5 class="text-white">Enjoy Great Times with us</h5>
+                                <ul class="list-inline">
+                                  <li class="list-inline-item text-white me-2"> <i class="bi bi-patch-check-fill me-1"></i>Get 1000 bonus points on every stay</li>
+                                  <li class="list-inline-item text-white me-2"> <i class="bi bi-patch-check-fill me-1"></i>Earn through Dec 15</li>
+                                  <li class="list-inline-item text-white"> <i class="bi bi-patch-check-fill me-1"></i>Redeem for free night and more</li>
+                                </ul>
+                              </div>
+                              <!-- Button -->
+                              <a href="#" class="btn btn-white mb-0">Register Now</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <! ======================================================================= -->
+                <!-- Nav item Facilities -->
+                <!-- Nav item Facilities -->
+                <! =================================================================== -->
+                <li class="nav-item dropdown dropdown-fullwidth">
+                  <a class="nav-link" href="#" id="hotelMenu4" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Maison</a>
+                  <div class="dropdown-menu" aria-labelledby="hotelMenu">
+                    <div class="container">
+                      <div class="row g-4 justify-content-between p-lg-3">
+                        <!-- Destination -->
+                        <div class="col-lg-5">
+                          <h6 class="mb-3"><i class="bi bi-pin-map-fill text-primary me-2"></i>Arts</h6>
+                          <hr class="my-2">
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <ul class="list-unstyled">
+                                <li> <a class="dropdown-item" href="#">New York</a> </li>
+                                <li> <a class="dropdown-item" href="#">California</a> </li>
+                                <li> <a class="dropdown-item" href="#">New Jersey</a> </li>
+                                <li> <a class="dropdown-item" href="#">Canada</a> </li>
+                                <li> <a class="dropdown-item" href="#">Las vegas</a> </li>
+                              </ul>
+                            </div>
+                            <div class="col-lg-6">
+                              <ul class="list-unstyled">
+                                <li> <a class="dropdown-item" href="#">London</a> </li>
+                                <li> <a class="dropdown-item" href="#">Singapore</a> </li>
+                                <li> <a class="dropdown-item" href="#">Malaysia</a> </li>
+                                <li> <a class="dropdown-item" href="#">manhattan</a> </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Hotel type -->
+                        <div class="col-lg-3">
+                          <h6 class="mb-3"><i class="bi bi-list-ul text-primary me-2"></i>Décoration</h6>
+                          <hr class="my-2">
+                          <ul class="list-unstyled">
+                            <li> <a class="dropdown-item" href="#">All</a> </li>
+                            <li> <a class="dropdown-item" href="#">Hotels</a> </li>
+                            <li> <a class="dropdown-item" href="#">Villas</a> </li>
+                            <li> <a class="dropdown-item" href="#">Palace</a> </li>
+                            <li> <a class="dropdown-item" href="#">Resorts</a> </li>
+                            <li> <a class="dropdown-item" href="#">Restaurants</a> </li>
+                          </ul>
+                        </div>
+
+                        <!-- Category -->
+                        <div class="col-lg-3">
+                          <h6 class="mb-3"><i class="bi bi-grid-3x3-gap text-primary me-2"></i>Textiles</h6>
+                          <hr class="my-2">
+                          <ul class="list-unstyled">
+                            <li> <a class="dropdown-item" href="#"><i class="fa-solid fa-umbrella-beach fa-fw me-2"></i>Beach</a> </li>
+                            <li> <a class="dropdown-item" href="#"><i class="fa-solid fa-city fa-fw me-2"></i>City</a> </li>
+                            <li> <a class="dropdown-item" href="#"><i class="fa-solid fa-spa fa-fw me-2"></i>Spa</a> </li>
+                            <li> <a class="dropdown-item" href="#"><i class="fa-solid fa-mountain-sun fa-fw me-2"></i>Wildlife</a> </li>
+                            <li> <a class="dropdown-item" href="#"><i class="fa-solid fa-golf-ball-tee fa-fw me-2"></i>Golf</a> </li>
+                            <li> <a class="dropdown-item" href="#"><i class="fa-solid fa-gopuram fa-fw me-2"></i>Heritage</a> </li>
+                          </ul>
+                        </div>
+
+                        <!-- Action box -->
+                        <div class="col-12">
+                          <div class="card overflow-hidden" style="background-image:url(assets/images/bg/05.jpg); background-position: center left; background-size: cover;">
+                            <div class="bg-overlay bg-dark opacity-5"></div>
+                            <div class="card-body d-lg-flex justify-content-between align-items-center position-relative z-index-9">
+                              <!-- Meta -->
+                              <div class="mb-3 mb-lg-0">
+                                <h5 class="text-white">Enjoy Great Times with us</h5>
+                                <ul class="list-inline">
+                                  <li class="list-inline-item text-white me-2"> <i class="bi bi-patch-check-fill me-1"></i>Get 1000 bonus points on every stay</li>
+                                  <li class="list-inline-item text-white me-2"> <i class="bi bi-patch-check-fill me-1"></i>Earn through Dec 15</li>
+                                  <li class="list-inline-item text-white"> <i class="bi bi-patch-check-fill me-1"></i>Redeem for free night and more</li>
+                                </ul>
+                              </div>
+                              <!-- Button -->
+                              <a href="#" class="btn btn-white mb-0">Register Now</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <! ======================================================================= -->
+                <!-- Nav item Facilities -->
+
+              </ul>
+            </div>
+            <!-- Main navbar END -->
+
+            <!-- Toggler button and stay button -->
+            <div class="d-flex align-items-center justify-content-end">
+              <!-- Responsive navbar toggler -->
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+								<span class="navbar-toggler-animation">
+									<span></span>
+									<span></span>
+									<span></span>
+								</span>
+                <span class="d-none d-sm-inline-block small">Menu</span>
+              </button>
+
+            <a class="btn btn-sm btn-primary mb-0" href="{% url 'article-create' %}" role="button">Vendre un Article <i class="fas fa-angle-right ms-2"></i></a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- Logo Nav END -->
+</header>
+<!-- Header END -->
+

@@ -1,0 +1,15 @@
+<!-- Choose type -->
+<div class="col-12">
+    <label class="form-label">Choose listing type *</label>
+    <select class="form-select js-choice"
+            name="main_category"
+            hx-get="{% url 'all-categories' %}"
+            hx-trigger="change"
+            hx-target="#subcategory"
+    >
+        {% for cat in categories %}
+        <option value="{{ cat.pk }}">{{ cat.name }}</option>
+        {% endfor %}
+    </select>
+    <small>Hotel: Professional hospitality businesses that usually have a unique style or theme defining their brand and decor</small>
+</div>
